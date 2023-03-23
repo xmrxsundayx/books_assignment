@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>New Books</h1>
+<div class="create_book">
+    <form action="/book/create" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" value="title" name="title">
+        <label for="num_of_pages" >Number of pages:</label>
+        <input type="number" value="0" name="number_of_pages">
+        <input type="submit" value="Create">
+    </form>
+</div>
+<div class="all_books">
+    <div class="card" style="width: 300px;">
+        <div class="card-header fs-3 fw-bold">All Books</div>
+        <ul class="list-group list-group-flush">
+            {% for book in all_books%}
+            <li class="list-group-item">{{book.title}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<a href="/">
+    <button type="submit">Home</button>
+    </a>
+
+{% endblock %}

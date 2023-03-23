@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>New Author</h1>
+<div class="create_author">
+    <form action="/authors/create" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" value="Name" name="name">
+        <input type="submit" value="Create">
+    </form>
+</div>
+<div class="all_authors">
+    <div class="card" style="width: 300px;">
+        <div class="card-header  fs-3 fw-bold">All Authors</div>
+        <ul class="list-group list-group-flush">
+            {% for author in all_authors%}
+            <li class="list-group-item">    <a href="/authors/{{author.id}}">{{author.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="/books">
+    <button type="submit">Add Book</button>
+    </a>
+    
+
+{% endblock %}
